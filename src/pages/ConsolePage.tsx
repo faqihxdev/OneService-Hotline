@@ -427,9 +427,9 @@ export function ConsolePage() {
             <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
               <div className="flex flex-col items-center w-full space-y-12">
                 {/* Caller info */}
-                <div className="text-white text-center mb-20">
-                  <div className="text-3xl font-semibold mb-1">One Service Hotline</div>
-                  <div className="text-gray-300 text-xl">
+                <div className="text-white text-center mb-16">
+                  <div className="text-xl font-semibold">One Service Hotline</div>
+                  <div className="text-gray-300 text-base">
                     {isConnected 
                       ? formatCallDuration(callDuration)
                       : 'press to call'
@@ -438,26 +438,26 @@ export function ConsolePage() {
                 </div>
 
                 {/* Call controls */}
-                <div className="max-w-[350px] w-full mx-auto">
+                <div className="max-w-[220px] w-full mx-auto">
                   <div className="grid grid-cols-3 gap-6 mb-8">
                     {/* Top row buttons */}
                     <button className="flex flex-col items-center cursor-default">
-                      <div className="w-[75px] h-[75px] rounded-full bg-white/10 flex items-center justify-center mb-2">
-                        <MicrophoneIcon className="w-8 h-8 text-white" />
+                      <div className="w-[55px] h-[55px] rounded-full bg-white/10 flex items-center justify-center mb-2">
+                        <MicrophoneIcon className="w-6 h-6 text-white" />
                       </div>
                       <span className="text-white text-xs">mute</span>
                     </button>
                     
                     <button className="flex flex-col items-center cursor-default">
-                      <div className="w-[75px] h-[75px] rounded-full bg-white/10 flex items-center justify-center mb-2">
-                        <HashtagIcon className="w-8 h-8 text-white" />
+                      <div className="w-[55px] h-[55px] rounded-full bg-white/10 flex items-center justify-center mb-2">
+                        <HashtagIcon className="w-6 h-6 text-white" />
                       </div>
                       <span className="text-white text-xs">keypad</span>
                     </button>
                     
                     <button className="flex flex-col items-center cursor-default">
-                      <div className="w-[75px] h-[75px] rounded-full bg-white/10 flex items-center justify-center mb-2">
-                        <SpeakerWaveIcon className="w-8 h-8 text-white" />
+                      <div className="w-[55px] h-[55px] rounded-full bg-white/10 flex items-center justify-center mb-2">
+                        <SpeakerWaveIcon className="w-6 h-6 text-white" />
                       </div>
                       <span className="text-white text-xs">audio</span>
                     </button>
@@ -466,22 +466,22 @@ export function ConsolePage() {
                   <div className="grid grid-cols-3 gap-6">
                     {/* Bottom row buttons */}
                     <button className="flex flex-col items-center cursor-default">
-                      <div className="w-[75px] h-[75px] rounded-full bg-white/10 flex items-center justify-center mb-2">
-                        <PlusIcon className="w-8 h-8 text-white" />
+                      <div className="w-[55px] h-[55px] rounded-full bg-white/10 flex items-center justify-center mb-2">
+                        <PlusIcon className="w-6 h-6 text-white" />
                       </div>
                       <span className="text-white text-xs">add call</span>
                     </button>
                     
                     <button className="flex flex-col items-center cursor-default">
-                      <div className="w-[75px] h-[75px] rounded-full bg-white/10 flex items-center justify-center mb-2">
-                        <VideoCameraIcon className="w-8 h-8 text-white" />
+                      <div className="w-[55px] h-[55px] rounded-full bg-white/10 flex items-center justify-center mb-2">
+                        <VideoCameraIcon className="w-6 h-6 text-white" />
                       </div>
                       <span className="text-white text-xs">FaceTime</span>
                     </button>
                     
                     <button className="flex flex-col items-center cursor-default">
-                      <div className="w-[75px] h-[75px] rounded-full bg-white/10 flex items-center justify-center mb-2">
-                        <UsersIcon className="w-8 h-8 text-white" />
+                      <div className="w-[55px] h-[55px] rounded-full bg-white/10 flex items-center justify-center mb-2">
+                        <UsersIcon className="w-6 h-6 text-white" />
                       </div>
                       <span className="text-white text-xs">contacts</span>
                     </button>
@@ -491,14 +491,14 @@ export function ConsolePage() {
                   <div className="mt-12 flex justify-center">
                     <button 
                       onClick={isConnected ? disconnectConversation : connectConversation}
-                      className={`w-[75px] h-[75px] rounded-full ${
+                      className={`w-[55px] h-[55px] rounded-full ${
                         isConnected ? 'bg-red-500' : 'bg-green-500'
                       } flex items-center justify-center`}
                     >
                       {isConnected ? (
-                        <XMarkIcon className="w-8 h-8 text-white" />
+                        <XMarkIcon className="w-6 h-6 text-white" />
                       ) : (
-                        <PhoneIcon className="w-8 h-8 text-white" />
+                        <PhoneIcon className="w-6 h-6 text-white" />
                       )}
                     </button>
                   </div>
