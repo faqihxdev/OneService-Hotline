@@ -4,7 +4,7 @@ The OneService Hotline is a helpful artificial intelligence assistant, responsib
 
 <img src="/readme/oneservice-hotline-demo.png" width="800" />
 
-This is also the winning solution for [GovTech x OpenAI Hackathon 2024](https://www.tech.gov.sg/media/events/govtech-openai-hackathon-2024/)
+This is also the winning solution for [GovTech x OpenAI Hackathon 2024](https://www.tech.gov.sg/media/events/govtech-openai-hackathon-2024/).
 
 ## Starting the console
 
@@ -35,7 +35,7 @@ The AI assistant will engage with the user to retrieve the reporter's contact in
 
 In our preliminary testing, the [Realtime API](https://platform.openai.com/docs/guides/realtime) can listen and speak multiple commonly available language (*e.g. English, Singlish, Mandarin, Malay, Tamil and other dialects*) seamlessly and interchangeably. However, more rigorous study is required for its actual performance in production setting (given factors like ambience noise, unclear responses, accented audio etc).
 
-For the actual system instruction and function defintions used in this demo, they are available for reference in `src/utils/conversation_config.js` and `src/utils/tools.ts`. Feel free to adapt it for your own hotline use cases.
+The actual system instruction and function defintions used in this demo are available in `src/utils/conversation_config.js` and `src/utils/tools.ts`. Feel free to adapt it for your own hotline use cases.
 
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
