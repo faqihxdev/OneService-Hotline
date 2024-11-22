@@ -13,6 +13,14 @@ export function setupTools(
       parameters: {
         type: 'object',
         properties: {
+          name: {
+            type: 'string',
+            description: 'The name of the person who is reporting the case. This can be the name of the person who is submitting the case or the name of the person who is affected by the case.'
+          },
+          contact: {
+            type: 'string',
+            description: '8 Digit singapore contact number of the person who is reporting the case. This can be the contact number of the person who is submitting the case or the contact number of the person who is affected by the case.'
+          },
           category: {
             type: 'string',
             description: 'The type of the case. Choose the most appropriate category for the case.',
@@ -30,18 +38,21 @@ export function setupTools(
           },
           postal_code: {
             type: 'number',
-            description: 'The postal code of the location of the case. Should always be a 6-digit number.'
+            description: 'The postal code of the location of the case. Must be a 6-digit number.'
           },
           location: {
             type: 'string',
-            description: 'Can be a relative location, for example, outside the NTUC Fairprice or beside the PCN. At times more detailed location of the case needs to be provided if the user indicates it occurs in their own unit, for example, block number, floor number and unit number.'
+            description: 'If the location is in a public area, it can be a relative location, for example, outside the NTUC Fairprice or beside the PCN. If the incident affects the user\'s personal unit, other information must be provided such as the block number and unit number.'
           },
           case_datetime: {
             type: 'string',
             description: 'The date and time of when the incident occurred translated in ISO 8601 format.'
           }
         },
+        additionalProperties: false,
         required: [
+          'name',
+          'contact',
           'category',
           'description',
           'postal_code',

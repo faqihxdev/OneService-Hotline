@@ -12,7 +12,9 @@ export const addCaseAtom = atom(
   (get, set, data: Partial<Case>) => {
     const cases = get(casesAtom);
     const newCase: Case = {
+      id: crypto.randomUUID(),
       name: '',
+      contact: '',
       description: '',
       location: '',
       case_datetime: new Date().toISOString(),
@@ -20,12 +22,10 @@ export const addCaseAtom = atom(
       audio_url: '',
       category: 'Others',
       postal_code: 0,
-      ...data,
-      id: crypto.randomUUID(),
+      ...data
     };
 
     console.log('newCase', newCase);
-
     set(casesAtom, [...cases, newCase]);
   }
 );
@@ -37,4 +37,4 @@ export const removeCaseAtom = atom(
     const cases = get(casesAtom);
     set(casesAtom, cases.filter(case_ => case_.id !== id));
   }
-); 
+);

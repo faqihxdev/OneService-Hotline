@@ -1,4 +1,4 @@
-import { MapPinIcon, XMarkIcon, TagIcon } from '@heroicons/react/24/solid';
+import { MapPinIcon, XMarkIcon, TagIcon, PhoneIcon } from '@heroicons/react/24/solid';
 import { casesAtom, removeCaseAtom } from '../stores/cases';
 import { useAtom, useSetAtom } from 'jotai';
 
@@ -29,6 +29,13 @@ export function CasesList() {
               <span className="text-zinc-400 text-xs">
                 {new Date(case_.case_datetime).toLocaleString()}
               </span>
+            </div>
+            <div className="flex justify-between items-center text-zinc-300 text-sm mb-2">
+              <span>Reported by: {case_.name}</span>
+              <div className="flex items-center gap-1">
+                <PhoneIcon className="w-3 h-3" />
+                <span>{case_.contact}</span>
+              </div>
             </div>
             <div className="text-zinc-400 text-sm mb-2 flex items-center gap-1">
               <MapPinIcon className="w-4 h-4 text-red-400" />
