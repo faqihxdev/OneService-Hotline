@@ -35,14 +35,14 @@ import { Toggle } from '../components/Toggle';
 
 import { Visualization } from '../components/Visualization';
 import { EventLog } from '../components/EventLog';
-import { ComplaintsList } from '../components/ComplaintsList';
+import { CasesList } from '../components/CasesList';
 import { setupTools } from '../utils/tools';
 import { formatTime as formatTimeHelper, handleTurnEndTypeChange } from '../utils/helper';
 import { ConversationHistory } from '../components/ConversationHistory';
 import iPhoneFrame from '../assets/iphone.png';
 import osLogo from '../assets/os-logo.png';
 import { useAtom, useSetAtom } from 'jotai';
-import { addComplaintAtom, complaintsAtom } from '../stores/complaints';
+import { addCaseAtom, casesAtom } from '../stores/cases';
 
 /**
  * Type for all event logs
@@ -71,8 +71,8 @@ export function ConsolePage() {
   const [isRecording, setIsRecording] = useState(false);
   const [callDuration, setCallDuration] = useState<number>(0);
   const timerIntervalRef = useRef<NodeJS.Timeout | null>(null);
-  const [complaints, setComplaints] = useAtom(complaintsAtom);
-  const addComplaint = useSetAtom(addComplaintAtom);
+  const [cases, setCases] = useAtom(casesAtom);
+  const addCase = useSetAtom(addCaseAtom);
 
   // Get API Key
   const apiKey = LOCAL_RELAY_SERVER_URL
@@ -261,7 +261,7 @@ export function ConsolePage() {
     // Set up tools with direct state setters
     setupTools(
       client,
-      addComplaint
+      addCase
     );
 
     // handle realtime events from client + server for event logging
@@ -534,15 +534,15 @@ export function ConsolePage() {
             )}
           </div>
           
-          {/* Complaints list */}
+          {/* Cases list */}
           <div className="h-full bg-zinc-900 rounded-2xl overflow-hidden relative flex flex-col">
             <div className="flex-shrink-0 flex items-center justify-between px-4 py-4">
               <div className="flex items-center justify-center leading-8 px-4 py-1 bg-zinc-800 text-zinc-300 rounded-[1000px] min-h-[32px] w-fit">
-                COMPLAINTS
+                CASES
               </div>
-              {complaints.length > 0 && (
+              {cases.length > 0 && (
                 <button
-                  onClick={() => setComplaints([])}
+                  onClick={() => setCases([])}
                   className="px-4 py-2 text-center bg-zinc-800 text-zinc-300 rounded-[1000px] hover:bg-zinc-700 transition-colors flex items-center gap-2"
                 >
                   <ArrowPathIcon className="w-4 h-4" />
@@ -551,7 +551,7 @@ export function ConsolePage() {
               )}
             </div>
             <div className="flex-grow overflow-y-auto">
-              <ComplaintsList />
+              <CasesList />
             </div>
           </div>
         </div>
