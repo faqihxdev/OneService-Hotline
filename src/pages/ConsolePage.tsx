@@ -445,21 +445,21 @@ export function ConsolePage() {
                       <div className="w-[55px] h-[55px] rounded-full bg-white/10 flex items-center justify-center mb-2">
                         <MicrophoneIcon className="w-6 h-6 text-white" />
                       </div>
-                      <span className="text-white text-xs">mute</span>
+                      <span className="text-white text-xs">Mute</span>
                     </button>
                     
                     <button className="flex flex-col items-center cursor-default">
                       <div className="w-[55px] h-[55px] rounded-full bg-white/10 flex items-center justify-center mb-2">
                         <HashtagIcon className="w-6 h-6 text-white" />
                       </div>
-                      <span className="text-white text-xs">keypad</span>
+                      <span className="text-white text-xs">Keypad</span>
                     </button>
                     
                     <button className="flex flex-col items-center cursor-default">
                       <div className="w-[55px] h-[55px] rounded-full bg-white/10 flex items-center justify-center mb-2">
                         <SpeakerWaveIcon className="w-6 h-6 text-white" />
                       </div>
-                      <span className="text-white text-xs">audio</span>
+                      <span className="text-white text-xs">Audio</span>
                     </button>
                   </div>
 
@@ -469,7 +469,7 @@ export function ConsolePage() {
                       <div className="w-[55px] h-[55px] rounded-full bg-white/10 flex items-center justify-center mb-2">
                         <PlusIcon className="w-6 h-6 text-white" />
                       </div>
-                      <span className="text-white text-xs">add call</span>
+                      <span className="text-white text-xs">Add call</span>
                     </button>
                     
                     <button className="flex flex-col items-center cursor-default">
@@ -483,7 +483,7 @@ export function ConsolePage() {
                       <div className="w-[55px] h-[55px] rounded-full bg-white/10 flex items-center justify-center mb-2">
                         <UsersIcon className="w-6 h-6 text-white" />
                       </div>
-                      <span className="text-white text-xs">contacts</span>
+                      <span className="text-white text-xs">Contacts</span>
                     </button>
                   </div>
 
