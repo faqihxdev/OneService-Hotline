@@ -1,9 +1,8 @@
 import { ConsolePage } from './pages/ConsolePage';
-import './App.scss';
 
 function App() {
   return (
-    <div data-component="App">
+    <div className="h-full w-full relative">
       <ConsolePage />
     </div>
   );
