@@ -2,14 +2,14 @@
 
 The OneService Hotline is a helpful artificial intelligence assistant, responsible for helping users (*primarily elderly*) to submit a case or feedback on municipal issues, without having to interact with the OneService App which could be challenging for elderly with limited digital literacy.
 
-<img src="/readme/oneservice-hotline-demo.png" width="800" />
+<img src="./readme/demo.png" width="800" />
 
-This is also the winning solution for [GovTech x OpenAI Hackathon 2024](https://www.tech.gov.sg/media/events/govtech-openai-hackathon-2024/).
+This project was created during the [GovTech x OpenAI Hackathon 2024](https://www.tech.gov.sg/media/events/govtech-openai-hackathon-2024/) and emerged as the winning solution 🏆. The hackathon was a fast-paced, 4-hour event where participants developed innovative AI solutions for public sector challenges. Competing against teams from leading companies and agencies, this project stood out for its high-quality execution and focus on accessibility.
 
 ## Starting the console
 
 This is a React project created using `create-react-app` that is bundled via Webpack.
-Install it by extracting the contents of this package and using;
+Install it by extracting the contents of this package and using:
 
 ```shell
 npm i
@@ -33,14 +33,16 @@ You can then choose between **manual** (Push-to-talk) and **vad** (Voice Activit
 
 The AI assistant will engage with the user to retrieve the reporter's contact information and more details about the case, before submitting the case using [Function Calling](https://platform.openai.com/docs/guides/function-calling).
 
-In our preliminary testing, the [Realtime API](https://platform.openai.com/docs/guides/realtime) can listen and speak multiple commonly available language (*e.g. English, Singlish, Mandarin, Malay, Tamil and other dialects*) seamlessly and interchangeably. However, more rigorous study is required for its actual performance in production setting (given factors like ambience noise, unclear responses, accented audio etc).
+In our preliminary testing, the [Realtime API](https://platform.openai.com/docs/guides/realtime) can listen and speak multiple commonly available languages (*e.g. English, Singlish, Mandarin, Malay, Tamil and other dialects*) seamlessly and interchangeably. However, more rigorous study is required for its actual performance in a production setting (given factors like ambient noise, unclear responses, accented audio, etc).
 
-The actual system instruction and function defintions used in this demo are available in `src/utils/conversation_config.js` and `src/utils/tools.ts`. Feel free to adapt it for your own hotline use cases.
+The actual system instruction and function definitions used in this demo are available in `src/utils/conversation_config.js` and `src/utils/tools.ts`. Feel free to adapt it for your own hotline use cases.
 
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Acknowledgement
+
+This project is built upon contributions from our talented team and insights gained during the GovTech x OpenAI Hackathon 2024.
 
 - [openai-realtime-console](https://github.com/openai/openai-realtime-console)
 - Wong Zhao Wu (Bryan) / [LinkedIn](https://www.linkedin.com/in/zw-wong/)
