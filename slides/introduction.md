@@ -13,13 +13,13 @@ Helpful AI assistant to submit cases on municipal issues.
 ![bg right:45% 95%](./images/app.png)
 
 ---
-## Table of Content
-1. About us
-1. Problems Statement
-1. How it works ?
-1. What works well ?
-1. What dont work ?
-1. What's next ?
+## Table of Contents
+1. About Us
+1. Problem Statement
+1. How It Works
+1. What Works well?
+1. What Doesn't Work?
+1. What's Next?
 
 
 ---
@@ -54,13 +54,13 @@ https://www.smartnation.gov.sg/initiatives/oneservice-app/
 
 ---
 
-# How it Works ?
+# How It Works
 ![w:1100 h:460](./images/architecture.drawio.png)
 
 https://platform.openai.com/docs/guides/realtime
 
 ---
-# What works well ?
+# What Works Well?
 
 - GPT-4o **understands Singapore languagues** (*Singlish, English, Mandarin, Hokkien, Teochew, Cantonese*) well enough to submit case reliably.
 - GPT-4o orchestrated the workflow with just **25 lines of instruction prompt** (without complex agentic workflow).
@@ -68,14 +68,14 @@ https://platform.openai.com/docs/guides/realtime
 
 ---
 
-# What dont work ?
+# What Doesn't work?
 - VAD is not reliable in loud environment with multiple speakers in background.
 - Whisper doesn't work reliably with Singlish (*when different languages mixes*).
 - Stateful server interaction of Realtime session with maximum duration 30 minutes.
 - Realtime API is costly.
 
 ---
-# What's next ?
+# What's Next?
 - Integration with the Real OneService API.
 - Extend coverage for more OneService case categories.
 - More robust functional testing with real user queries.
