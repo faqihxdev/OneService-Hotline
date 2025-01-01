@@ -62,24 +62,24 @@ https://platform.openai.com/docs/guides/realtime
 ---
 # What Works Well?
 
-- GPT-4o **understands Singapore languagues** (*Singlish, English, Mandarin, Hokkien, Teochew, Cantonese*) well enough to submit case reliably.
-- GPT-4o orchestrated the workflow with just **25 lines of instruction prompt** (without complex agentic workflow).
+- GPT-4o **understands Singapore languages and dialects** (*Singlish, English, Mandarin, Hokkien, Teochew, Cantonese*) well enough to submit case reliably.
+- GPT-4o orchestrated the workflow with just **25 lines of instruction prompting** (without complex agentic workflow).
 - Web Socket and Web-RTC integration is straight-forward and extensible (with the right template).
 
 ---
 
 # What Doesn't work?
-- VAD is not reliable in loud environment with multiple speakers in background.
+- Voice Activity Detection (VAD) is not reliable in loud environments with multiple speakers in background.
 - Whisper doesn't work reliably with Singlish (*when different languages mixes*).
-- Stateful server interaction of Realtime session with maximum duration 30 minutes.
+- Stateful server interaction of Realtime session with maximum duration of 30 minutes.
 - Realtime API is costly.
 
 ---
 # What's Next?
-- Integration with the Real OneService API.
+- Integration with the real OneService API.
 - Extend coverage for more OneService case categories.
 - More robust functional testing with real user queries.
 - Improve VAD model's performance.
 - Explore deployment options and costing.
-- *Finetune ASR model with local languages. (Hard: Hokkien dont have unified writing system but phonetic ones)
+- *Finetune ASR model with local languages. (Hard: some dialects like Hokkien use phonetic writing systems rather than written ones)
 
