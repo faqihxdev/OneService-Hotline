@@ -26,7 +26,6 @@ Helpful AI assistant to submit cases on municipal issues.
 
 # About Us
 Group of aspiring young engineers
-(left-to-right)
 
 -  [Ong Zheng Kai](https://www.linkedin.com/in/ong-zheng-kai)
 -  [Wong Zhao Wu, Bryan](https://www.linkedin.com/in/zw-wong/) (looking for Summer Intern 2025!)
@@ -45,26 +44,65 @@ How might we enable **elderly users** in submitting **municipal cases or feedbac
 
 ---
 
-# OneService App
+# Existing Platform
 
-> The OneService App is a one-stop platform that lets citizens feedback on municipal issues without having to figure out which Government agency or town council to contact.
+- The OneService App & Chatbot is a one-stop platform that lets citizens feedback on municipal issues.
+- Perfect for majority of citizens.
+
 https://www.smartnation.gov.sg/initiatives/oneservice-app/
 
 ![bg right 80%](https://www.oneservice.gov.sg/images/default-source/default-album/homepage-artwork.png?sfvrsn=fab74b4f_1)
 
+
+---
+# Our Solution
+
+A **speech-to-speech** AI hotline that can be used to assist the caller in **filing OneService cases** in multiple Singapore spoken language.
+
 ---
 
-# How It Works
+# Demo
+
+- [English Demo](https://youtu.be/ojxzHv3ontM)
+- [Chinese (Hokkien) Demo](https://youtu.be/WAeEP51iHIY)
+
+---
+
+# Speech-to-Speech Pipeline
+![w:900 h:460](./images/architecture-traditional.png)
+
+- [ audio input ] ➔ [ ASR/SST ] ➔ [ GPT4 ] ➔ [ TTS ] ➔ [ audio output ]
+---
+# Speech-to-Speech Pipeline: Common Challenge
+
+- Higher Latency
+- Spoken Language dilemma for ASR
+- Monotonic output audio
+
+---
+
+# Realtime API: GPT-4o
 ![w:1100 h:460](./images/architecture.drawio.png)
 
 https://platform.openai.com/docs/guides/realtime
 
 ---
+
+# Realtime API: Other attributes
+- Websocket and Web-RTC events-driven connection
+- Turn Detection options (VAD or Press-to-talk)
+- Server-side context management
+
+---
+
 # What Works Well?
 
 - GPT-4o **understands Singapore languages and dialects** (*Singlish, English, Mandarin, Hokkien, Teochew, Cantonese*) well enough to submit case reliably.
 - GPT-4o orchestrated the workflow with just **25 lines of instruction prompting** (without complex agentic workflow).
 - Web Socket and Web-RTC integration is straight-forward and extensible (with the right template).
+
+https://github.com/pipecat-ai/pipecat
+https://github.com/openai/openai-realtime-console
 
 ---
 
