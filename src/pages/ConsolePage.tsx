@@ -347,6 +347,61 @@ export function ConsolePage() {
     return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
   };
 
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    // Only accept audio files
+    if (!file.type.startsWith('audio/')) {
+      alert('Please upload an audio file');
+      return;
+    }
+
+    try {
+      const arrayBuffer = await file.arrayBuffer();
+      const audioContext = new AudioContext();
+      const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+      
+      // Create offline context for resampling
+      const offlineContext = new OfflineAudioContext(
+        1, // mono
+        Math.ceil(audioBuffer.duration * 24000),
+        24000 // target sample rate
+      );
+
+      // Create buffer source
+      const source = offlineContext.createBufferSource();
+      source.buffer = audioBuffer;
+      source.connect(offlineContext.destination);
+      source.start();
+
+      // Render and get resampled buffer
+      const resampledBuffer = await offlineContext.startRendering();
+      const float32Array = resampledBuffer.getChannelData(0);
+      
+      // Convert to Int16Array
+      const buffer = new ArrayBuffer(float32Array.length * 2);
+      const view = new DataView(buffer);
+      
+      for (let i = 0; i < float32Array.length; i++) {
+        const s = Math.max(-1, Math.min(1, float32Array[i]));
+        view.setInt16(i * 2, s < 0 ? s * 0x8000 : s * 0x7fff, true);
+      }
+
+      const client = clientRef.current;
+      if (!client.isConnected()) {
+        await connectConversation();
+      }
+
+      // Append audio data and create response
+      client.appendInputAudio(new Int16Array(buffer));
+      client.createResponse();
+    } catch (error) {
+      console.error('Error processing audio file:', error);
+      alert('Error processing audio file');
+    }
+  };
+
   /**
    * Render the application
    */
@@ -397,6 +452,18 @@ export function ConsolePage() {
                   onChange={(_, value) => changeTurnEndType(value)}
                 />
                 <div className="flex-grow" />
+                
+                {/* Add upload button */}
+                <label className="cursor-pointer flex items-center justify-center px-4 py-2 bg-zinc-700 hover:bg-zinc-600 text-white rounded-lg transition-colors">
+                  <input
+                    type="file"
+                    accept="audio/*"
+                    onChange={handleFileUpload}
+                    className="hidden"
+                  />
+                  Upload Audio
+                </label>
+                
                 {isConnected && canPushToTalk && (
                   <Button
                     label={isRecording ? 'Recording...' : 'Connected'}
