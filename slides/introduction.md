@@ -26,7 +26,7 @@ Group of aspiring young engineers
 ![bg left](./images/team-pic.jpg)
 
 
-<!-- ---
+---
 
 # Problem Statement
 
@@ -53,7 +53,6 @@ https://www.smartnation.gov.sg/initiatives/oneservice-app/
 - Loves to call their friends
 
 ![bg right 80%](./images/average-elderly.png)
--->
 
 ---
 
@@ -70,18 +69,20 @@ A **speech-to-speech** AI hotline that can be used to assist the caller in **fil
 
 ---
 
-<!-- # Speech-to-Speech Pipeline
+# Speech-to-Speech Pipeline
 ![w:900 h:460](./images/architecture-traditional.png)
 
 - [ audio input ] ➔ [ ASR/SST ] ➔ [ GPT4 ] ➔ [ TTS ] ➔ [ audio output ]
+
 ---
 # Speech-to-Speech Pipeline: Common Challenge
 
 - Higher Latency
-- Spoken Language dilemma for ASR
-- Monotonic output audio
+- Lack of context for tone and emotions in text
+- NLP challenge like phrase endpointing (*figuring out when the LLM should respond*), and interruption handling
+- Robotic output from TTS models
 
---- -->
+---
 
 # OpenAI's Realtime API
 - Uses GPT-4o for native audio and text token ingestion and generation.
@@ -93,9 +94,11 @@ A **speech-to-speech** AI hotline that can be used to assist the caller in **fil
 
 ---
 
-# Realtime API: GPT-4o
-![w:1100 h:460](./images/architecture.drawio.png)
+# What audio-to-audio solves?
 
+- Lower latency
+- Easier model interruption (stop model from thinking immediately such that no extra information is added into the context length)
+- More realistic voice
 
 ---
 
@@ -109,6 +112,35 @@ A **speech-to-speech** AI hotline that can be used to assist the caller in **fil
 
 ---
 
+# Realtime API: GPT-4o
+![w:1100 h:460](./images/architecture.drawio.png)
+
+
+---
+
+# Voice Activity Detection
+
+- Two-mode of audio inputs: Press-to-talk or VAD
+- VAD will analyse audio stream and determine if the user has stopped speaking or has interrupted the model
+
+---
+
+# Function Calling
+
+- Developer can define `Functions` which is tools available for LLM to call to accomplish their tasks.
+- Description for each fields can be used by LLM to steer conversations.
+
+
+---
+
+# Speech-to-Text Model
+
+- Realtime API uses `whisper-large-v2` to transcribe input audio stream asynchronously.
+- Transcription is not used by LLM but serves as "representation" understood by the model.
+
+
+---
+
 # What Works Well?
 
 - GPT-4o **understands Singapore languages and dialects** (*Singlish, English, Mandarin, Hokkien, Teochew, Cantonese*) well enough to submit case reliably.
@@ -119,19 +151,28 @@ A **speech-to-speech** AI hotline that can be used to assist the caller in **fil
 
 # What Doesn't work?
 - Voice Activity Detection (VAD) is not reliable in loud environments with multiple speakers in background.
-- Whisper doesn't work reliably with Singlish (*when different languages mixes*).
+- Default Whisper doesn't work reliably with Singlish (*when different languages mixes*).
 - Stateful server interaction of Realtime session with maximum duration of 30 minutes.
-- Realtime API is costly.
+
+---
+# Challenge: Singlish is "cha-ba-lang"
+- Multiple languages in a single conversations.
+- Lack of fully localised **multilingual** whisper implementation (Singlish + Other dialects at same time)
+
+![w:600 h:260](https://thesmartlocal.com/wp-content/uploads/2023/08/singaporean-culture-quirks-cover.png)
+[ Source: [Renae Cheng.](https://thesmartlocal.com/read/singaporean-culture-quirks/) ]
+
+
 
 ---
 
-# Getting Started
+# What's Next
 
-https://github.com/pipecat-ai/pipecat
-https://github.com/openai/openai-realtime-console
+
+---
+
+# Reflection
 
 ---
 
 # Thank You
-
-> Let us know if you have interesting idea on how to uses 25k USD of OpenAI Credits 😁
